@@ -1,11 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
-20.times do |n|
+5.times do |n|
   Airport.create(code: ('A'..'Z').to_a[n..n+2].join)
+end
+
+1.times do |n|
+  Airport.all.each do |from_airport|
+    Airport.all.each do |to_airport|
+      Flight.create(from_airport_id: from_airport.id, to_airport_id: to_airport.id,
+                    start_datetime: rand.weeks.from_now, flight_duration: rand.days)
+
+    end
+  end
 end
