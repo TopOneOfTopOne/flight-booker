@@ -1,11 +1,12 @@
 class FlightsController < ApplicationController
   def index
-    @start_datetimes = Flight.all.map { |flight| [flight.start_datetime.to_date, flight.start_datetime] }.uniq
+    @start_datetimes = Flight.all.map { |flight| flight.start_datetime.to_date }.uniq
     @airport_ids = Airport.all.map { |airport| [airport.code, airport.id] }
     @num_passengers = (1..4).to_a
 
     # searching
-    @flights = Flight.where(flight_search_params) unless params[:flight_search].nil?
+    @flights = Flight.search(flight_search_params) unless params[:flight_search].nil?
+    debugger
   end
 
   private

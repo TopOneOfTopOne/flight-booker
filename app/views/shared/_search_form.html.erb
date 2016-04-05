@@ -1,19 +1,22 @@
 <%= form_for :flight_search, url: flights_path, method: 'get' do |f| %>
-    <table class="flight_search">
-      <tr>
-        <th>Departure</th>
-        <th>From</th>
-        <th>To</th>
-        <th>Passenger</th>
-      </tr>
-      <tr>
-        <td><%= f.select(:start_datetime, @start_datetimes) %></td>
-        <td><%= f.select(:from_airport_id, @airport_ids) %></td>
-        <td><%= f.select(:to_airport_id, @airport_ids, selected: nil) %></td>
-        <td><%= f.select(:num_passengers, @num_passengers) %></td>
-      </tr>
-      <tr>
-        <%= f.submit "Search" %>
-      </tr>
-    </table>
+  <table class="flight_search">
+    <tr>
+      <th>Departure</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Passenger</th>
+    </tr>
+    <tr>
+      <td><%= f.select(:start_datetime, @start_datetimes) %></td>
+      <td><%= f.select(:from_airport_id, @airport_ids) %></td>
+      <td><%= f.select(:to_airport_id, @airport_ids, selected: nil) %></td>
+      <td><%= f.select(:num_passengers, @num_passengers) %></td>
+    </tr>
+    <tr>
+      <%= f.submit "Search" %>
+    </tr>
+  </table>
 <% end %>
+
+
+
