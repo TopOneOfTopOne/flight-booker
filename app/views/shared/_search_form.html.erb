@@ -6,10 +6,14 @@
         <th>To</th>
         <th>Passenger</th>
       </tr>
-        <td><%= f.select(:start_datetimes, @start_datetimes) %></td>
+      <tr>
+        <td><%= f.select(:start_datetime, @start_datetimes) %></td>
         <td><%= f.select(:from_airport_id, @airport_ids) %></td>
         <td><%= f.select(:to_airport_id, @airport_ids, selected: nil) %></td>
         <td><%= f.select(:num_passengers, @num_passengers) %></td>
+      </tr>
+      <tr>
+        <%= f.submit "Search" %>
+      </tr>
     </table>
-    <%= f.submit "Search" %>
 <% end %>

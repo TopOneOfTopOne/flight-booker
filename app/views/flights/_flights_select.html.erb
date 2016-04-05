@@ -1,0 +1,24 @@
+<table class="flights_select">
+  <% if @flights.empty? %>
+      <p> No results found! </p>
+  <% else %>
+    <tr>
+      <th>Select</th>
+      <th>Departure</th>
+      <th>To</th>
+      <th>From</th>
+      <th>Flight_Duration</th>
+    </tr>
+    <%= form_for :flight_select do |f| %>
+      <%= @flights.each do |flight| %>
+        <tr>
+          <td><%= f.radio_button(:flight, flight.id) %></td>
+          <td><%= flight.start_datetime %></td>
+          <td><%= Airport.find(flight.to_airport_id).code %>/td>
+          <td><%= Airport.find(flight.from_airport_id).code %></td>
+          <td><%= pluralize(flight.flight_duration.hours, 'hour') %></td>
+        </tr>
+      <% end %>
+     <% end %>
+  <% end %>
+</table>

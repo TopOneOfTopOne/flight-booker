@@ -1,4 +1,7 @@
 <h1>Flights</h1>
 <%= render 'shared/search_form' %>
-<%= render 'shared/flights_select' %>
-
+<% if @flights.nil? %>
+    <p>Search a flight now!</p>
+<% else %>
+    <%= render 'flights_select' %>
+<% end %>
