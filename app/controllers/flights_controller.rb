@@ -6,7 +6,7 @@ class FlightsController < ApplicationController
 
     # searching
     @flights = Flight.search(flight_search_params) unless params[:flight_search].nil?
-    debugger
+
   end
 
   private
