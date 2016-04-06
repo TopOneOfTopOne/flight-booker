@@ -1,5 +1,5 @@
 <table class="flights_select" style="border: 1px solid black;">
-  <% if @flights.empty? %>
+  <% if @info[:flights].empty? %>
       <p> No results found! </p>
   <% else %>
     <tr>
@@ -8,7 +8,7 @@
       <th>Duration</th>
     </tr>
     <%= form_for :flight_select do |f| %>
-      <% @flights.each do |flight| %>
+      <% @info[:flights].each do |flight| %>
         <tr style="border: 1px solid black;">
           <td><%= f.radio_button(:flight, flight.id) %></td>
           <td><%= flight.start_datetime.strftime("%I:%M%p") %></td>

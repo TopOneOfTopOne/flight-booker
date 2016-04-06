@@ -1,10 +1,10 @@
 <h1>Flights</h1>
 <%= render 'shared/search_form' %>
-<% if @flights.nil? %>
+<% if @info.nil? %>
     <p>Search a flight now!</p>
 <% else %>
     <p>Results for: <br>
-      &#160;From: <em><%= Airport.find(@flights.first.from_airport_id).code %></em> To: <em><%= Airport.find(@flights.first.to_airport_id).code %></em> Passengers: <em><%= @selected_num_passengers %></em> Date: <em><%= @flights.first.start_datetime.to_date %></em>
+      &#160;From: <em><%= Airport.find(@searched_for[:from_airport_id]).code %></em> To: <em><%= Airport.find(@searched_for[:to_airport_id]).code %></em> Passengers: <em><%= @searched_for[:num_passengers] %></em> Date: <em><%= @searched_for[:start_datetime].to_date %></em>
     </p>
     <%= render 'flights_select' %>
 <% end %>
