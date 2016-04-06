@@ -1,0 +1,6 @@
+<h3>Booking-<%= booking.id %></h3>
+Flight-<%= booking.flight_id %>
+<br>
+Passengers: <% booking.passengers.each do |passenger| %>
+            <%= passenger.name %>,
+            <% end %>
