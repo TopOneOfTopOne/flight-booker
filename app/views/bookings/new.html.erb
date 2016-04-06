@@ -1,7 +1,17 @@
 <h1>Flight booking</h1>
 <p>
-  Information: <br>&#160; From: <em><%= Airport.find(@booking.flight[:from_airport_id]).code %></em> To: <em><%= Airport.find(@searched_for[:to_airport_id]).code %></em> Passengers: <em><%= @searched_for[:num_passengers] %></em> Date: <em><%= @searched_for[:start_datetime].to_date %></em>
+  Booking Information: <br>&#160; From: <em><%= @booking.flight.from_airport.code %></em> To: <em><%= @booking.flight.to_airport.code %></em> Passengers: <em><%= @num_passengers %></em> Date: <em><%= @booking.flight.start_datetime %></em>
 </p>
+<h3>Passenger information</h3>
 <%= form_for @booking do |f| %>
-
+  <%= f.fields_for :passengers do |p| %>
+    <br>
+    <%= p.label :name %>
+    <%= p.text_field :name %>
+    <%= p.label :email %>
+    <%= p.text_field :email %>
+  <% end %>
+    <br>
+    <%= f.hidden_field :flight_id, value: @booking.flight_id %>
+  <%= f.submit "Submit" %>
 <% end %>
