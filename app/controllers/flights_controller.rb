@@ -4,8 +4,10 @@ class FlightsController < ApplicationController
     @airport_ids = Airport.all.map { |airport| [airport.code, airport.id] }
     @num_passengers = (1..4).to_a
 
-    @searched_for = flight_search_params
-    @info = {flights: Flight.search(flight_search_params), num_passengers: params[:flight_search][:num_passengers]} unless params[:flight_search].nil?
+    unless params[:flight_search].nil?
+      @searched_for = flight_search_params
+      @info = {flights: Flight.search(flight_search_params), num_passengers: params[:flight_search][:num_passengers]}
+    end
   end
 
   private

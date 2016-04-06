@@ -1,0 +1,7 @@
+<h1>Flight booking</h1>
+<p>
+  Information: <br>&#160; From: <em><%= Airport.find(@booking.flight[:from_airport_id]).code %></em> To: <em><%= Airport.find(@searched_for[:to_airport_id]).code %></em> Passengers: <em><%= @searched_for[:num_passengers] %></em> Date: <em><%= @searched_for[:start_datetime].to_date %></em>
+</p>
+<%= form_for @booking do |f| %>
+
+<% end %>
