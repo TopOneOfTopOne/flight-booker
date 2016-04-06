@@ -1,8 +1,10 @@
 <h1>Flights</h1>
 <%= render 'shared/search_form' %>
-<br><br>
 <% if @flights.nil? %>
     <p>Search a flight now!</p>
 <% else %>
+    <p>Results for: <br>
+      &#160;From: <em><%= Airport.find(@flights.first.from_airport_id).code %></em> To: <em><%= Airport.find(@flights.first.to_airport_id).code %></em> Passengers: <em><%= @selected_num_passengers %></em> Date: <em><%= @flights.first.start_datetime.to_date %></em>
+    </p>
     <%= render 'flights_select' %>
 <% end %>

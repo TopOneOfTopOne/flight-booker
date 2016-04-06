@@ -6,7 +6,7 @@ class FlightsController < ApplicationController
 
     # searching
     @flights = Flight.search(flight_search_params) unless params[:flight_search].nil?
-
+    @selected_num_passengers = params[:flight_search][:num_passengers]
   end
 
   private

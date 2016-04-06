@@ -5,20 +5,19 @@
     <tr>
       <th>Select</th>
       <th>Departure</th>
-      <th>To</th>
-      <th>From</th>
       <th>Duration</th>
     </tr>
     <%= form_for :flight_select do |f| %>
       <% @flights.each do |flight| %>
         <tr style="border: 1px solid black;">
           <td><%= f.radio_button(:flight, flight.id) %></td>
-          <td><%= flight.start_datetime %></td>
-          <td><%= Airport.find(flight.to_airport_id).code %></td>
-          <td><%= Airport.find(flight.from_airport_id).code %></td>
+          <td><%= flight.start_datetime.strftime("%I:%M%p") %></td>
           <td><%= distance_of_time_in_words(flight.flight_duration) %></td>
         </tr>
       <% end %>
+        <tr>
+          <td><%= f.submit "Submit" %></td>
+        </tr>
      <% end %>
   <% end %>
 </table>
