@@ -7,7 +7,7 @@
       <th>Departure</th>
       <th>Duration</th>
     </tr>
-    <%= form_for :flight_select do |f| %>
+    <%= form_for :booking, method: 'get', url: bookings_path do |f| %>
       <% @info[:flights].each do |flight| %>
         <tr style="border: 1px solid black;">
           <td><%= f.radio_button(:flight, flight.id) %></td>
@@ -16,6 +16,7 @@
         </tr>
       <% end %>
         <tr>
+          <%= f.hidden_field(:num_passengers, value: @info[:num_passengers]) %>
           <td><%= f.submit "Submit" %></td>
         </tr>
      <% end %>
