@@ -13,7 +13,8 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
-      redirect_to all_url
+      @booking.send_confirmation_emails
+      redirect_to all_url, notice: %(Confirmation sent to #{@booking.passengers.first.email})
     else
       render 'new'
     end
