@@ -1,4 +1,6 @@
-#Books a shitty fictitious flight <a href="https://flightbooker69.herokuapp.com/" target="_blank">here</a>
+#Books a shitty fictitious flight
+
+<a href="https://flightbooker69.herokuapp.com/" target="_blank">here</a>
 
 ## Features
 * creates random list of flights with attributes: datetime
